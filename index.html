@@ -18,9 +18,16 @@
         <p id="info-paragraph">Da clic al botón para mostrar a los usuarios</p>
         <p id="info-coming-from"></p>
 
-        <button id="get-users" type="button" class="btn btn-danger">Mostrar usuarios</button>
+        <button id="get-users" type="button" class="btn btn-danger">
+          Mostrar usuarios
+        </button>
 
-        <section id="users-table-container" class="mt-5">
+        <div class="d-flex justify-content-center">
+          <span id="spinner" class="spinner-border spinner-border-lg m-5 aria-hidden="true"></span> 
+        </div>
+        
+
+        <section id="users-table-container" class="container mt-5">
 
             <h2>Lista de usuarios</h2>
     
@@ -31,7 +38,7 @@
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">Correo</th>
-                    <th scope="col">Foto</th>
+                    <th class="d-none d-sm-block" scope="col">Foto</th>
                   </tr>
                 </thead>
     

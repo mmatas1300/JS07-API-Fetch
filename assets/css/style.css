@@ -4,3 +4,8 @@ body{
 .circular-image{
     border-radius: 50%;
   }
+
+#spinner{
+    width: 4rem; 
+    height: 4rem;
+}

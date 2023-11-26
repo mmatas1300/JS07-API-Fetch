@@ -6,6 +6,7 @@ const infoParagraphRef = document.getElementById("info-paragraph");
 const tableBodyRef = document.getElementById("users-table-body");
 const usersTableContainerRef = document.getElementById("users-table-container");
 const infoComingFromRef = document.getElementById("info-coming-from");
+const spinnerRef = document.getElementById("spinner");
 
 const displayElement = (reference,value) => {
     reference.style.display = value ? "block" : "none";
@@ -16,6 +17,7 @@ const printDOM = (message,reference) =>{
 }
 
 displayElement(usersTableContainerRef,false);
+displayElement(spinnerRef,false);
 
 buttonRef.addEventListener("click", ()=>{
     displayElement(usersTableContainerRef,false);
@@ -27,7 +29,7 @@ buttonRef.addEventListener("click", ()=>{
             getUsers(urlUsersDelay);
         } else{
             showUsersTableFromLocalStorage();
-            printDOM(`Infromación actualizada desde LocalStorage`,infoComingFromRef);
+            printDOM(`Información actualizada desde LocalStorage`,infoComingFromRef);
         }
 
     } else{
@@ -37,6 +39,7 @@ buttonRef.addEventListener("click", ()=>{
 })
 
 const getUsers = (url) =>{
+    displayElement(spinnerRef,true);
     buttonRef.disabled = true;
     printDOM("Obteniendo usuarios desde REQRES, por favor espere...",infoParagraphRef);
     printDOM(``,infoComingFromRef);
@@ -45,6 +48,7 @@ const getUsers = (url) =>{
     .then(users => {
         saveUsersInLocalStorage(users.data);
         buttonRef.disabled = false;
+        displayElement(spinnerRef,false);
         showUsersTableFromLocalStorage();
         printDOM(`Infromación actualizada desde REQRES`,infoComingFromRef);
     })
@@ -66,7 +70,7 @@ const showUsersTableFromLocalStorage= () => {
         <td>${user.firstName}</td>
         <td>${user.lastName}</td>
         <td>${user.email}</td>
-        <td><img src="${user.avatar}" alt="Fotografía del usuario llamado ${user.firstName} ${user.lastName}." class="img-fluid circular-image"></td>
+        <td class="d-none d-sm-block"><img src="${user.avatar}" alt="Fotografía del usuario llamado ${user.firstName} ${user.lastName}." class="img-fluid circular-image"></td>
         </tr>`;
         return row;
     });
