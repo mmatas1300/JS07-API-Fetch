@@ -11,7 +11,31 @@
         <h1>JS 07: API Fetch</h1>
     </header>
     <main>
-        <button id="get-users" type="button" class="btn btn-danger">Solicitar usuarios</button>
+        <p id="info-paragraph">Da clic al botón para mostrar a los usuarios</p>
+        <p id="info-coming-from"></p>
+
+        <button id="get-users" type="button" class="btn btn-danger">Mostrar usuarios</button>
+
+        <section id="users-table-container" class="mt-5">
+
+            <h2>Lista de usuarios</h2>
+    
+            <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Foto</th>
+                  </tr>
+                </thead>
+    
+                <tbody id="users-table-body">
+                    
+                </tbody>
+              </table>
+        </section>
 
     </main>
 
