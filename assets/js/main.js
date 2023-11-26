@@ -66,7 +66,7 @@ const showUsersTableFromLocalStorage= () => {
         <td>${user.firstName}</td>
         <td>${user.lastName}</td>
         <td>${user.email}</td>
-        <td><img src="${user.avatar}" alt="Fotografía del usuario llamado ${user.firstName} ${user.lastName}."></td>
+        <td><img src="${user.avatar}" alt="Fotografía del usuario llamado ${user.firstName} ${user.lastName}." class="img-fluid"></td>
         </tr>`;
         return row;
     });
